@@ -1,1 +1,0 @@
-<view class="viewIndex data-v-0b5bc068"><block wx:if="{{isShow}}"><view class="auth-box data-v-0b5bc068"><button type="primary" open-type="getUserInfo" data-event-opts="{{[['getuserinfo',[['getuserinfo',['$event']]]]]}}" bindgetuserinfo="__e" class="data-v-0b5bc068">授权获取</button></view></block></view>
