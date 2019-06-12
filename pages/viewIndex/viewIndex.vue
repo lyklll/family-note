@@ -9,6 +9,10 @@
 </template>
 
 <script>
+	import {
+		mapGetters,
+		mapMutations
+	} from 'vuex'
 	export default {
 		data() {
 			return {
@@ -16,6 +20,7 @@
 			};
 		},
 		methods: {
+			...mapMutations(['setStateValue']),
 			async addUser(userData) {
 				let userInfoResult = await wx.cloud.callFunction({
 					name: "addUser",
@@ -24,10 +29,12 @@
 					}
 				})
 				if (userInfoResult.result.issuccess) {
-					console.log(11)
+					this.setStateValue({
+						memberInfo:userInfoResult.result.data
+					})
 					//增加账户成功
 					uni.switchTab({
-						url: '/pages/tabbar/tabbar-1/tabbar-1'
+						url: '/pages/tabbar/viewHome/viewHome'
 					});
 
 				} else {
@@ -62,9 +69,12 @@
 					}
 
 				} else {
-					console.log(result)
+					//console.log(result)
+					this.setStateValue({
+						memberInfo:result.result.data[0]
+					})
 					uni.switchTab({
-						url: '/pages/tabbar/tabbar-1/tabbar-1'
+						url: '/pages/tabbar/viewHome/viewHome'
 					});
 				}
 			} catch (ex) {
