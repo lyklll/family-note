@@ -1,4 +1,4 @@
-//全局变量管理文件，使用了浏览器缓存
+//全局变量管理文件，使用了浏览器缓存（gzh分支）
 
 import Vue from 'vue'
 import Vuex from 'vuex'
